@@ -1,18 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 const CommentList = (props) => {
-    const {postId}  = props ;
-    const [comments, setComments] = useState([]);
-
-    const getComments = async () => {
-        const res = await axios.get(`http://localhost:4001/posts/${postId}/comments`);
-        setComments(res.data);
-    }
-    useEffect(() => {
-        getComments();
-    }, [])
-
+    const { comments } = props;
     return (
         <ul>
             {
